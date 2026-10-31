@@ -6,9 +6,9 @@ This directory contains the project documentation, technical reports, and intera
 ---
 
 ### 1. Interactive Presentation Deck (GitHub Pages Ready)
-- **[`index.html`](./index.html)** — Interactive 16:9 presentation slide deck for judging and evaluation.
-- **[`style.css`](./style.css)** — Slide deck stylesheets and animations.
-- **[`script.js`](./script.js)** — Presentation controller, keyboard shortcuts, and speaker notes.
+- **[`presentation/index.html`](./presentation/index.html)** — Interactive 16:9 presentation slide deck for judging and evaluation.
+- **[`presentation/style.css`](./presentation/style.css)** — Slide deck stylesheets and animations.
+- **[`presentation/script.js`](./presentation/script.js)** — Presentation controller, keyboard shortcuts, and speaker notes.
 
 #### Keyboard Shortcuts:
 - **Right Arrow / Space / Page Down:** Next slide
