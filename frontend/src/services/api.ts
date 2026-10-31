@@ -10,7 +10,7 @@ import {
   ScenarioResult,
 } from '../types';
 
-const API_BASE = 'http://localhost:8000/api';
+const API_BASE = (typeof window !== 'undefined' && window.location.port === '5173') ? '/api' : 'http://127.0.0.1:8000/api';
 
 async function fetchJson<T>(url: string, options?: RequestInit): Promise<T> {
   const res = await fetch(`${API_BASE}${url}`, {

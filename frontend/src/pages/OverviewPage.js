@@ -5,14 +5,35 @@ import { ResponsiveContainer, LineChart, Line, BarChart, Bar, PieChart, Pie, Cel
 export const OverviewPage = ({ kpis, buildings, recommendations, onNavigateTab, }) => {
     const [viewMode, setViewMode] = useState('table');
     if (!kpis) {
-        return (_jsx("div", { style: {
-                padding: '48px',
+        return (_jsxs("div", { style: {
+                padding: '64px 24px',
                 textAlign: 'center',
-                color: '#64748B',
                 backgroundColor: '#FFFFFF',
                 borderRadius: '10px',
                 border: '1px solid #E2E8F0',
-            }, children: _jsx("div", { style: { fontSize: '0.95rem', fontWeight: '500' }, children: "Loading campus telemetry..." }) }));
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                gap: '14px',
+                boxShadow: '0 1px 3px rgba(0, 0, 0, 0.02)',
+            }, children: [_jsx("div", { style: {
+                        width: '38px',
+                        height: '38px',
+                        border: '3px solid #EFF6FF',
+                        borderTop: '3px solid #2563EB',
+                        borderRadius: '50%',
+                        display: 'inline-block',
+                    } }), _jsxs("div", { children: [_jsx("div", { style: { fontSize: '1rem', fontWeight: '700', color: '#1E293B' }, children: "Synchronizing Campus Telemetry..." }), _jsx("p", { style: { fontSize: '0.82rem', color: '#64748B', margin: '4px 0 0 0' }, children: "Retrieving building flow rates, pressure sensors, and reservoir storage levels." })] }), _jsx("button", { onClick: () => window.location.reload(), style: {
+                        marginTop: '6px',
+                        backgroundColor: '#2563EB',
+                        color: '#FFFFFF',
+                        border: 'none',
+                        padding: '7px 18px',
+                        borderRadius: '6px',
+                        fontSize: '0.82rem',
+                        fontWeight: '600',
+                        cursor: 'pointer',
+                    }, children: "Retry Connection" })] }));
     }
     const p1Recs = recommendations.filter((r) => r.priority === 'P1' && r.approval_status !== 'Resolved');
     // Compute live values for the 3 charts

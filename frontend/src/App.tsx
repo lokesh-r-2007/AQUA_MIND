@@ -56,9 +56,14 @@ export function App() {
 
   useEffect(() => {
     refreshAllData();
-    // Poll every 8 seconds for real-time updates
+    // Fast second sync after 1.5s to ensure instant population
+    const quickTimer = setTimeout(refreshAllData, 1500);
+    // Poll every 8 seconds for continuous live telemetry
     const interval = setInterval(refreshAllData, 8000);
-    return () => clearInterval(interval);
+    return () => {
+      clearTimeout(quickTimer);
+      clearInterval(interval);
+    };
   }, []);
 
   const handleStepSimulation = async () => {

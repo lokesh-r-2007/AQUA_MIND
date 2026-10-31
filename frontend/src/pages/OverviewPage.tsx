@@ -50,14 +50,49 @@ export const OverviewPage: React.FC<OverviewPageProps> = ({
   if (!kpis) {
     return (
       <div style={{
-        padding: '48px',
+        padding: '64px 24px',
         textAlign: 'center',
-        color: '#64748B',
         backgroundColor: '#FFFFFF',
         borderRadius: '10px',
         border: '1px solid #E2E8F0',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        gap: '14px',
+        boxShadow: '0 1px 3px rgba(0, 0, 0, 0.02)',
       }}>
-        <div style={{ fontSize: '0.95rem', fontWeight: '500' }}>Loading campus telemetry...</div>
+        <div style={{
+          width: '38px',
+          height: '38px',
+          border: '3px solid #EFF6FF',
+          borderTop: '3px solid #2563EB',
+          borderRadius: '50%',
+          display: 'inline-block',
+        }} />
+        <div>
+          <div style={{ fontSize: '1rem', fontWeight: '700', color: '#1E293B' }}>
+            Synchronizing Campus Telemetry...
+          </div>
+          <p style={{ fontSize: '0.82rem', color: '#64748B', margin: '4px 0 0 0' }}>
+            Retrieving building flow rates, pressure sensors, and reservoir storage levels.
+          </p>
+        </div>
+        <button
+          onClick={() => window.location.reload()}
+          style={{
+            marginTop: '6px',
+            backgroundColor: '#2563EB',
+            color: '#FFFFFF',
+            border: 'none',
+            padding: '7px 18px',
+            borderRadius: '6px',
+            fontSize: '0.82rem',
+            fontWeight: '600',
+            cursor: 'pointer',
+          }}
+        >
+          Retry Connection
+        </button>
       </div>
     );
   }
